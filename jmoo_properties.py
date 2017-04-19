@@ -30,15 +30,12 @@
 from jmoo_algorithms import jmoo_NSGAII, jmoo_SWAY5, jmoo_SPEA2
 from jmoo_problems import *
 
-# from Problems.CPM.cpm import *
-# from Problems.CPM.cpm_reduction import *
 from Problems.NRP.nrp import *
 # from Problems.MONRP.monrp import *
 from Problems.POM3.POM3B import POM3B
 from Problems.POM3.POM3A import POM3A, POM3AS
 from Problems.POM3.POM3C import POM3C
 from Problems.POM3.POM3D import POM3D
-from Problems.Feature_Models.feature_model import FeatureTreeModel
 from Problems.XOMO.XOMO_flight import XOMO_flight
 from Problems.XOMO.XOMO_all import XOMO_all
 from Problems.XOMO.XOMO_ground import XOMO_ground
@@ -55,14 +52,14 @@ algorithms = [
             jmoo_SPEA2(),
             # jmoo_GALE(),
             # jmoo_SWAY2(),
-            jmoo_SWAY5()
+            # jmoo_SWAY5()
               ]
 
 problems =[
     POM3A(),
-    POM3B(), POM3C(), POM3D(),
-    XOMO_flight(),
-    XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
+    # POM3B(), POM3C(), POM3D(),
+    # XOMO_flight(),
+    # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
     # MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
     # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
     ]

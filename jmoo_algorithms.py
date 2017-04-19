@@ -131,93 +131,6 @@ class jmoo_SWAY2:
         self.color = color
         self.type = '*'
 
-class jmoo_GALE4:
-    def __init__(self, color="#0066ff"):
-        self.name = "GALE4"
-        self.initializer = None
-        self.selector = gale_4_WHERE
-        self.adjustor = gale_4_Mutate
-        self.recombiner = gale_4_Regen
-        self.color = color
-        self.type = '*'
-
-class jmoo_GALE2:
-    def __init__(self, color="Black"):
-        self.name = "GALE2"
-        self.initializer = None
-        self.selector = gale2WHERE
-        self.adjustor = gale2Mutate
-        self.recombiner = gale2Regen
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_DE:
-    def __init__(self, color="magenta"):
-        self.name = "DE"
-        self.initializer = None
-        self.selector = de_selector
-        self.adjustor = de_mutate
-        self.recombiner = de_recombine  # stub
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_learneractive:
-    def __init__(self, color="magenta"):
-        self.name = "LA"
-        self.initializer = None
-        self.selector = la_find
-        self.adjustor = la_mutate
-        self.recombiner = la_regenerate  # stub
-        self.color = color
-        self.type = '*'
-
-# my idea
-class jmoo_GALE8:
-    def __init__(self, color="magenta"):
-        self.name = "VALE8"
-        self.initializer = None
-        self.selector = gale_8_WHERE
-        self.adjustor = gale_8_Mutate
-        self.recombiner = gale_8_Regen
-        self.color = color
-        self.type = '*'
-
-# DE style towards n/2
-class jmoo_GALE16:
-    def __init__(self, color="orange"):
-        self.name = "VALE16"
-        self.initializer = None
-        self.selector = gale_16_WHERE
-        self.adjustor = gale_16_Mutate
-        self.recombiner = gale_16_Regen
-        self.color = color
-        self.type = '*'
-
-
-# Smoting towards n/2
-class jmoo_GALE32:
-    def __init__(self, color="#330066"):
-        self.name = "VALE32"
-        self.initializer = None
-        self.selector = gale_32_WHERE
-        self.adjustor = gale_32_Mutate
-        self.recombiner = gale_32_Regen
-        self.color = color
-        self.type = '*'
-
-
-# GA with half of the ND leaf
-class jmoo_GALE64:
-    def __init__(self, color="#FF6666"):
-        self.name = "VALE64"
-        self.initializer = None
-        self.selector = gale_64_WHERE
-        self.adjustor = gale_64_Mutate
-        self.recombiner = gale_64_Regen
-        self.color = color
-        self.type = '*'
 
 
 class jmoo_MOEAD_TCH:
@@ -415,7 +328,7 @@ def selSPEA2(problem, population, selectees, configurations):
             cells.append(dIndividual[j])
         population.append(jmoo_individual(problem, cells, [f for f in dIndividual.fitness.values]))
 
-    return population, k
+    return population, 0
 
 
 def selNSGA2(problem, population, selectees, configurations):
