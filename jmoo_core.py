@@ -240,13 +240,13 @@ class JMOO:
         for problem in self.tests.problems:
             for algorithm in self.tests.algorithms:
                 for repeat in range(self.configurations["Universal"]["Repeats"]):
-                    call_jmoo_evo(problem, algorithm, self.configurations, repeat)
+                    # call_jmoo_evo(problem, algorithm, self.configurations, repeat)
         #             print problem.name, algorithm.name, repeat
-        #             pool.apply_async(call_jmoo_evo, (problem, algorithm, self.configurations, repeat))
-        #
-        # pool.close()
-        # pool.join()
-        # print(results)
+                    pool.apply_async(call_jmoo_evo, (problem, algorithm, self.configurations, repeat))
+
+        pool.close()
+        pool.join()
+        print(results)
 
 
                     
