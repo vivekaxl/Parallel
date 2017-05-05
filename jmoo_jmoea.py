@@ -110,6 +110,14 @@ def jmoo_evo(problem, algorithm, configurations, repeat, stopCriteria=bstop):
     from time import time
     old = time()
 
+    # # # # # # # # # # # # # # # #
+    # 3.1) Special Initialization #
+    # # # # # # # # # # # # # # # #
+    if algorithm.initializer is not None:
+        # TODO:fix MOEAD
+        population, numeval = algorithm.initializer(problem, population, configurations, values_to_be_passed)
+
+
     # Generate a folder to store the population
     foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "_" + str(configurations["Universal"]["Population_Size"]) + "/"
     import os

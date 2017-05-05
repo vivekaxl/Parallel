@@ -27,7 +27,7 @@
 "Brief notes"
 "Property File.  Defines default settings."
 
-from jmoo_algorithms import jmoo_NSGAII, jmoo_SWAY5, jmoo_SPEA2
+from jmoo_algorithms import jmoo_NSGAII, jmoo_SWAY5, jmoo_SPEA2, jmoo_MOEAD_PBI, jmoo_MOEAD_TCH
 from jmoo_problems import *
 
 from Problems.NRP.nrp import *
@@ -80,32 +80,34 @@ from Problems.MONRP.monrp import MONRP
 
 # JMOO Experimental Definitions
 algorithms = [
-            jmoo_NSGAII(),
-            jmoo_SPEA2(),
+            # jmoo_MOEAD_PBI()
+            jmoo_MOEAD_TCH()
+            # jmoo_NSGAII(),
+            # jmoo_SPEA2(),
             # jmoo_GALE(),
             # jmoo_SWAY2(),
             # jmoo_SWAY5()
               ]
 
 problems =[
-    POM3A_1_2(), POM3A_2_3(),
-    # POM3A(),
-    # POM3B(),
-    POM3B_1_2(), POM3B_2_3(),
-    # # POM3C(),
-    POM3C_1_2(), POM3C_2_3(),
-    # # POM3D(),
-    POM3D_1_2(), POM3D_2_3(),
-    # # XOMO_flight(),
-    XOMO_flight_1_2(), XOMO_flight_2_3(), XOMO_flight_3_4(),
-    # # XOMO_all(),
-    XOMO_all_1_2(), XOMO_all_2_3(), XOMO_all_3_4(),
-    # # XOMO_ground(),
-    XOMO_ground_1_2(), XOMO_ground_2_3(), XOMO_flight_3_4(),
-    # # XOMO_osp(),
-    XOMO_osp_1_2(), XOMO_osp_2_3(), XOMO_osp_3_4(),
-    # # XOMO_osp2(),
-    XOMO_osp2_1_2(), XOMO_osp2_2_3(), XOMO_osp2_3_4()
+    # POM3A_1_2(), POM3A_2_3(),
+    POM3A(),
+    POM3B(),
+    # POM3B_1_2(), POM3B_2_3(),
+    POM3C(),
+    # POM3C_1_2(), POM3C_2_3(),
+    POM3D(),
+    # POM3D_1_2(), POM3D_2_3(),
+    XOMO_flight(),
+    # XOMO_flight_1_2(), XOMO_flight_2_3(), XOMO_flight_3_4(),
+    XOMO_all(),
+    # XOMO_all_1_2(), XOMO_all_2_3(), XOMO_all_3_4(),
+    XOMO_ground(),
+    # XOMO_ground_1_2(), XOMO_ground_2_3(), XOMO_flight_3_4(),
+    XOMO_osp(),
+    # XOMO_osp_1_2(), XOMO_osp_2_3(), XOMO_osp_3_4(),
+    XOMO_osp2(),
+    # XOMO_osp2_1_2(), XOMO_osp2_2_3(), XOMO_osp2_3_4()
     # MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
     # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
     ]
