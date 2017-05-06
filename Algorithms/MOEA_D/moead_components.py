@@ -358,23 +358,37 @@ def sbxcrossover(problem, parent1, parent2, configuration):
 
 def variation(problem, individual_index, population, configuration):
     """ SBX regeneration Technique """
-
     from random import randint
     from copy import deepcopy
-    individual = deepcopy([pop for pop in population if pop.id == individual_index][-1])
-    other_parent = individual.neighbor[randint(0, configuration["MOEAD"]["niche"]-1)]
-    another_parent = other_parent
-    while another_parent == other_parent: another_parent = individual.neighbor[randint(0, configuration["MOEAD"]["niche"]-1)]
+    import sys
+    counter_ind = 0
+    while True:
+        individual = deepcopy([pop for pop in population if pop.id == individual_index][-1])
+        other_parent = individual.neighbor[randint(0, configuration["MOEAD"]["niche"]-1)]
+        another_parent = other_parent
+        while another_parent == other_parent: another_parent = individual.neighbor[randint(0, configuration["MOEAD"]["niche"]-1)]
 
-    assert(len([pop for pop in population if pop.id == other_parent]) == 1), "id should be unique"
-    assert(len([pop for pop in population if pop.id == another_parent]) == 1), "id should be unique"
+        assert(len([pop for pop in population if pop.id == other_parent]) == 1), "id should be unique"
+        assert(len([pop for pop in population if pop.id == another_parent]) == 1), "id should be unique"
 
-    from copy import deepcopy
-    parent1 = deepcopy([pop for pop in population if pop.id == other_parent][-1])
-    parent2 = deepcopy([pop for pop in population if pop.id == another_parent][-1])
+        from copy import deepcopy
+        parent1 = deepcopy([pop for pop in population if pop.id == other_parent][-1])
+        parent2 = deepcopy([pop for pop in population if pop.id == another_parent][-1])
 
-    child1, _ = sbxcrossover(problem, parent1, parent2, configuration)
-    mchild1 = polynomial_mutation(problem, child1, configuration)
+        child1, _ = sbxcrossover(problem, parent1, parent2, configuration)
+        mchild1 = polynomial_mutation(problem, child1, configuration)
+
+        counter_ind += 1
+        if problem.evalConstraints(mchild1.decisionValues) is True:
+            break
+        elif counter_ind > 1e4:
+            print "missed"
+            sys.stdout.flush()
+            break
+        elif counter_ind % 1e3 == 0:
+            print ".", counter_ind,
+            sys.stdout.flush()
+
     mchild1.evaluate()  #checked| correct
 
     assert(mchild1.valid is True), "Something is wrong| Check if the evaluation is complete"

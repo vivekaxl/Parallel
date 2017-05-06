@@ -40,7 +40,7 @@ def do_nothing_initializer(problem, population):
 
 # from Algorithms.GALE.gale_components import *
 # from Algorithms.DE.de_components import *
-# from Algorithms.MOEA_D.moead_components import *
+from Algorithms.MOEA_D.moead_components import *
 # from Algorithms.NSGAIII.nsgaiii_components import *
 # from Algorithms.STORM.storm_components import *
 # from Algorithms.NSGAIII.nsgaiii_components import *
